@@ -1,0 +1,30 @@
+{
+  "name": "pxu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "next": "^5.0.0",
+    "physijs-webpack": "0.0.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-three-renderer": "^3.2.4",
+    "three": "^0.90.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigspaeth/pxu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/craigspaeth/pxu/issues"
+  },
+  "homepage": "https://github.com/craigspaeth/pxu#readme"
+}
