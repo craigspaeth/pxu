@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "next",
     "prestart": "next build",
-    "start": "next start"
+    "start": "next start -p $PORT"
   },
   "repository": {
     "type": "git",
