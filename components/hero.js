@@ -1,28 +1,53 @@
 import initHeroViz from '../lib/hero-viz'
-import { type } from '../lib/styles'
+import Header from './header'
+import {
+  type,
+  margins,
+  columns,
+  layout,
+  navHeight,
+  colors
+} from '../lib/styles'
 
 export default () => {
   return (
-    <div>
-      <h3>Pixel Unicorns</h3>
-      <h1>Design & dev. studio based in NYC </h1>
-      <h2>
-        We’re a software design and development studio that builds web and mobile products for our clients.
-      </h2>
+    <div className='wrapper'>
+      <div className='viz' />
+      <div className='inner'>
+        <Header
+          eyebrow='Pixel Unicorns'
+          copy='Design & dev. studio based in NYC'
+        />
+        <h2>
+          We’re a software design and development studio that builds web and mobile products for our clients.
+        </h2>
+      </div>
       <style jsx>{`
-      div {
+      .viz {
         background-color: #eee;
-        height: 90vh;
+        position: absolute;
+        z-index: -1;
       }
-      h1 {
-        ${type.nimbusM}
-        font-weight: bold;
+      .wrapper {
+        height: 100vh;
+        padding-top: ${navHeight}px;
+        padding-bottom: ${navHeight}px;
+      }
+      ${layout('.wrapper')}
+      .inner {
+        top: 50%;
+        position: relative;
+        transform: translateY(-50%);
       }
       h2 {
-        ${type.nimbusM}
-        font-weight: bold;
+        ${type.metaSerifL}
+        ${columns(7)}
       }
-
+      @media screen and (max-width: 480px) {
+        h2 {
+          ${type.metaSerifM}
+        }
+      }
     `}</style>
     </div>
   )
