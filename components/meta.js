@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { colors } from '../lib/styles'
 
 export default () => (
   <div>
@@ -12,6 +13,10 @@ export default () => (
         font: 16px Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        color: ${colors.gray2};
+      }
+      * {
+        box-sizing: border-box;
       }
       @font-face {
         font-family: "Nimbus";
@@ -21,7 +26,36 @@ export default () => (
         font-family: "Nimbus";
         src: url("/static/fonts/nimbus-d-bold.otf");
         font-weight: bold;
-    }
+      }
+      @font-face {
+        font-family: "Source Code";
+        src: url("/static/fonts/source-code-regular.ttf");
+      }
+      @font-face {
+        font-family: "Source Code";
+        src: url("/static/fonts/source-code-bold.ttf");
+        font-weight: bold;
+      }
+      @font-face {
+        font-family: "Meta";
+        src: url("/static/fonts/meta-book.otf");
+      }
+      @font-face {
+        font-family: "Meta";
+        src: url("/static/fonts/meta-bold.otf");
+        font-weight: bold;
+      }
+      @font-face {
+        font-family: "Meta";
+        src: url("/static/fonts/meta-book-italic.otf");
+        font-style: italic;
+      }
+      @font-face {
+        font-family: "Meta";
+        src: url("/static/fonts/meta-bold-italic.otf");
+        font-weight: bold;
+        font-style: italic;
+      }
     `}</style>
   </div>
 )
