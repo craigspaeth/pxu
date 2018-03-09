@@ -17,7 +17,12 @@ export default () => {
         copy='We’re an agile team of design-gineers'
       />
       <style jsx>{`
-      ${layout('.wrapper')}
+        div {
+          ${layout.desktop}
+        }
+        @media screen and (max-width: 480px) {
+          ${layout.mobile}
+        }
       `}</style>
     </div>
   )

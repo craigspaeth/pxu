@@ -17,7 +17,12 @@ export default () => {
         copy='We build functional digital products with attention to detail'
       />
       <style jsx>{`
-      ${layout('.wrapper')}
+      div {
+        ${layout.desktop}
+      }
+      @media screen and (max-width: 480px) {
+        ${layout.mobile}
+      }
       `}</style>
     </div>
   )
