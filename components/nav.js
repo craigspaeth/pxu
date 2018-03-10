@@ -1,5 +1,5 @@
 import initHeroViz from '../lib/hero-viz'
-import { margins, type } from '../lib/styles'
+import { margins, type, colors } from '../lib/styles'
 
 export default class extends React.Component {
   constructor () {
@@ -29,7 +29,7 @@ export default class extends React.Component {
           <img src='/static/logo.png' />
           <a>What we do</a>
           <a>Who we are</a>
-          <a>Hire us</a>
+          <a className='highlighted'>Hire us</a>
         </nav>
         <style jsx>{`
     a, img {
@@ -37,9 +37,15 @@ export default class extends React.Component {
       vertical-align: middle;
       margin-right: ${margins.m}px;
     }
+    .highlighted {
+      color: ${colors.fushia1};
+      border: 2px solid ${colors.fushia1};
+      padding: 6px 9px;
+    }
     a {
       ${type.helveticaL}
       font-weight: bold;
+      cursor: pointer;
     }
     nav {
       padding: ${margins.xs}px;

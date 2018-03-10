@@ -15,6 +15,14 @@ export default ({ eyebrow, copy }) => {
       <h1>{copy}</h1>
       <style jsx>{`
         div {
+          ${layout.desktop}
+        }
+        @media screen and (max-width: 480px) {
+          div {
+            ${layout.mobile}
+          }
+        }
+        h3, h1 {
           ${columns(7)}
         }
         h1 {
@@ -23,7 +31,6 @@ export default ({ eyebrow, copy }) => {
         }
         h3 {
           ${type.sourceCodeLabelL}
-          font-weight: bold;
           margin-bottom: ${margins.xs}px;
           color: ${colors.blue1};
         }
