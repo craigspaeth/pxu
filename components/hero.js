@@ -27,6 +27,7 @@ export default class extends React.Component {
           <Header
             eyebrow='Pixel Unicorns'
             copy='Design & dev. studio based in NYC'
+            margins={false}
           />
           <h2>
             We’re a software design and development studio that builds web and mobile products for our clients.
@@ -35,17 +36,17 @@ export default class extends React.Component {
         <style jsx>{`
         .viz {
           position: absolute;
-          z-index: -1;
           left: 0;
           top: 0;
           transition: opacity 0.5s cubic-bezier(0.550, 0.055, 0.675, 0.190);
-          opacity: ${this.state.vizLoaded ? 1 : 0};
+          background: linear-gradient(${colors.gray6}, white);
+          opacity: ${this.state.vizLoaded ? 0.7 : 0};
         }
         .wrapper {
           height: 100vh;
           padding-top: ${navHeight}px;
           padding-bottom: ${navHeight}px;
-          ${layout.desktop}
+          background: linear-gradient(${colors.gray6}, white);
         }
         .inner {
           top: 50%;
@@ -62,13 +63,13 @@ export default class extends React.Component {
         }
         h2 {
           ${type.metaSerifL}
+          ${layout.desktop}
           ${columns(7)}
+          margin: 0;
         }
         @media screen and (max-width: 480px) {
           h2 {
             ${type.metaSerifM}
-          }
-          .wrapper {
             ${layout.mobile}
           }
         }
