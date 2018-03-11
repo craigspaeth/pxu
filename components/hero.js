@@ -27,11 +27,12 @@ export default class extends React.Component {
           <Header
             eyebrow='Pixel Unicorns'
             copy='Design & dev. studio based in NYC'
-            margins={false}
           />
-          <h2>
-            We’re a software design and development studio that builds web and mobile products for our clients.
-          </h2>
+          <div className='h2wrapper'>
+            <h2>
+              We’re a software design and development studio that builds web and mobile products for our clients.
+            </h2>
+          </div>
         </div>
         <style jsx>{`
         .viz {
@@ -61,15 +62,19 @@ export default class extends React.Component {
           transform: translate(-50%, -50%);
           opacity: 0.2;
         }
+        .h2wrapper {
+          ${layout.desktop}
+        }
         h2 {
           ${type.metaSerifL}
-          ${layout.desktop}
           ${columns(7)}
           margin: 0;
         }
         @media screen and (max-width: 480px) {
           h2 {
             ${type.metaSerifM}
+          }
+          .h2wrapper {
             ${layout.mobile}
           }
         }
