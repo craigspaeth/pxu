@@ -1,4 +1,4 @@
-import { columns, type, layout, margins } from '../lib/styles'
+import { columns, type, layout, margins, colors } from '../lib/styles'
 
 export default () => (
   <div className='container'>
@@ -7,6 +7,21 @@ export default () => (
       <p>
         Looking for some unicorn designer/developers for your next project? Let’s talk and see if we’d make a good ft.
       </p>
+      <form>
+        <label>
+          Name
+          <input />
+        </label>
+        <label>
+          Email
+          <input />
+        </label>
+        <label>
+          Message
+          <div className='contenteditable' />
+        </label>
+        <button type='submit'>Submit</button>
+      </form>
     </div>
     <style jsx>{`
       .container {
@@ -25,6 +40,36 @@ export default () => (
       }
       p {
         ${type.metaSerifM}
+      }
+      label {
+        ${type.sourceCodeLabelM}
+      }
+      input, .contenteditable {
+        display: block;
+        ${type.helveticaM};
+        border: 0;
+        border-bottom: 2px solid ${colors.gray6};
+        padding: 7px 0s;
+        width: 100%;
+        margin-bottom: ${margins.xs}px; 
+        margin-top: 5px;
+        outline: none;
+        transition: border-color 0.3s;
+        height: 15px;
+      }
+      input:focus, .contenteditable:focus {
+        border-color: ${colors.blue1};
+      }
+      button {
+        background: ${colors.gray1};
+        color: white;
+        width: 100%;
+        padding: 10px;
+        ${type.helveticaL}
+        font-weight: bold;
+      }
+      form {
+        margin-top: ${margins.m}px;
       }
       @media screen and (max-width: 480px) {
         .container {
