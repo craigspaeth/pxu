@@ -22,6 +22,7 @@ export default ({ eyebrow, copy }) => {
           margin: auto;
           padding-top: ${margins.s}px;
           position: relative;
+          padding-bottom: ${margins.l}px;
           ${columns(3)}
         }
         p {

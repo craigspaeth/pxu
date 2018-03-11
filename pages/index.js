@@ -4,6 +4,7 @@ import Hero from '../components/hero'
 import Header from '../components/header'
 import MoreSection from '../components/more-section'
 import WeveWorkedWith from '../components/weve-worked-with'
+import ContactForm from '../components/contact-form'
 import Footer from '../components/footer'
 import initHeroViz from '../lib/hero-viz'
 
@@ -24,6 +25,7 @@ export default class extends React.Component {
           copy='We’re an agile team of design-gineers'
         />
         <WeveWorkedWith />
+        <ContactForm />
         <Footer />
         <style jsx>
           {`
