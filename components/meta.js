@@ -17,6 +17,7 @@ export default () => (
       }
       * {
         box-sizing: border-box;
+        outline: none;
       }
       @font-face {
         font-family: "Nimbus";
