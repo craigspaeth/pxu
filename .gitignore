@@ -60,6 +60,5 @@ typings/
 # Next
 .next
 
-# DSStore
-
+# DStore
 .DS_Store
