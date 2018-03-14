@@ -4,36 +4,41 @@ import Blurb from './blurb'
 export default () => {
   return (
     <div className='wrapper'>
-      <Blurb
-        icon='/static/more-icon.svg'
-        header='Branding, marketing & more'
-        paragraph='While our focus is digital products, we have capabilities to execute across the spectrum. We’ve worked in film post-production, built video games, designed brand identities, managed marketing campaigns, and more. If your product needs multi-disciplinary execution, chances one of us or someone in our network can deliver.'
-      />
-      <div className='items'>
-        <dl>
-          <dt>Branding</dt>
-          <dd>Foo bar</dd>
-          <dd>Foo bar</dd>
-          <dd>Foo bar</dd>
-        </dl>
-        <dl>
-          <dt>Marketing</dt>
-          <dd>Foo bar</dd>
-        </dl>
-        <dl>
-          <dt>Media</dt>
-          <dd>Foo bar</dd>
-        </dl>
-        <dl>
-          <dt>Others</dt>
-          <dd>Foo bar</dd>
-        </dl>
+      <div className='inner'>
+        <Blurb
+          icon='/static/more-icon.svg'
+          header='Branding, marketing & more'
+          paragraph='While our focus is digital products, we have capabilities to execute across the spectrum. We’ve worked in film post-production, built video games, designed brand identities, managed marketing campaigns, and more. If your product needs multi-disciplinary execution, chances one of us or someone in our network can deliver.'
+        />
+        <div className='items'>
+          <dl>
+            <dt>Branding</dt>
+            <dd>Foo bar</dd>
+            <dd>Foo bar</dd>
+            <dd>Foo bar</dd>
+          </dl>
+          <dl>
+            <dt>Marketing</dt>
+            <dd>Foo bar</dd>
+          </dl>
+          <dl>
+            <dt>Media</dt>
+            <dd>Foo bar</dd>
+          </dl>
+          <dl>
+            <dt>Others</dt>
+            <dd>Foo bar</dd>
+          </dl>
+        </div>
       </div>
       <style jsx>{`
       .wrapper {
         ${layout.desktop}
-        ${columns(8)}
         margin: ${margins.xxl}px auto;
+      }
+      .inner {
+        ${columns(8)}
+        margin: auto;
       }
       dt {
         ${type.sourceCodeLabelM}

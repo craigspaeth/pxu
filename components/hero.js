@@ -1,5 +1,6 @@
 import initHeroViz from '../lib/hero-viz'
 import Header from './header'
+import Arrow from '../components/arrow'
 import {
   type,
   margins,
@@ -34,7 +35,15 @@ export default class extends React.Component {
             </h2>
           </div>
         </div>
+        <div className='arrow'>
+          <Arrow />
+        </div>
         <style jsx>{`
+        .arrow {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+        }
         .viz {
           position: absolute;
           left: 0;
@@ -47,6 +56,7 @@ export default class extends React.Component {
           height: 100vh;
           padding-top: ${navHeight}px;
           padding-bottom: ${navHeight}px;
+          margin-bottom: ${margins.xxxl}px;
           background: linear-gradient(${colors.gray6}, white);
         }
         .inner {

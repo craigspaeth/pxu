@@ -96,17 +96,12 @@ export default class extends React.Component {
         </style>
         <style jsx>{`
           .container {
-            position: relative;
             min-height: 70vh;
             max-width: 50vw;
-            ${layout.desktop}
             margin-bottom: ${margins.xl}px;
-            text-align: right;
           }
           .right {
             ${columns(4)}
-            display: inline-block;
-            text-align: left;
           }
           h5 {
             ${type.nimbusS}

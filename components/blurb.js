@@ -3,7 +3,10 @@ import { columns, margins, type, columnList } from '../lib/styles'
 export default ({ icon, paragraph, header }) => {
   return (
     <div>
-      <h4><img src={icon} />{header}</h4>
+      <h4>
+        {icon && <img src={icon} />}
+        {header}
+      </h4>
       <p>{paragraph}</p>
       <style jsx>{`
       h4 {
