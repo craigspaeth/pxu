@@ -3,8 +3,11 @@ import Meta from '../components/meta'
 import Hero from '../components/hero'
 import Header from '../components/header'
 import MoreSection from '../components/more-section'
+import UISection from '../components/ui-section'
+import FullstackSection from '../components/fullstack-section'
 import WeveWorkedWith from '../components/weve-worked-with'
-import ContactForm from '../components/contact-form'
+import WhoWeAre from '../components/who-we-are'
+import HowWeWork from '../components/how-we-work'
 import Footer from '../components/footer'
 import initHeroViz from '../lib/hero-viz'
 
@@ -19,21 +22,17 @@ export default class extends React.Component {
           eyebrow='What we do'
           copy='We build functional digital products with attention to detail'
         />
+        <UISection />
+        <FullstackSection />
         <MoreSection />
         <Header
           eyebrow='Who we are'
           copy='We’re an agile team of design-gineers'
         />
+        <WhoWeAre />
         <WeveWorkedWith />
-        <ContactForm />
+        <HowWeWork />
         <Footer />
-        <style jsx>
-          {`
-            div {
-              height: 1000px;
-            }
-          `}
-        </style>
       </div>
     )
   }

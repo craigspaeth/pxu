@@ -40,7 +40,7 @@ export default ({ eyebrow, copy }) => {
         }
         a, p {
           display: inline-block;
-          vertical-align: top;
+          vertical-align: middle;
         }
         @media screen and (max-width: 480px) {
           div {
