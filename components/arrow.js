@@ -26,7 +26,7 @@ export default () => {
               10% {
                 transform: scaleY(0.9);
               }
-              11% {
+              12% {
                 transform: scaleY(1.1);
               }
               15% {
