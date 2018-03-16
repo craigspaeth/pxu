@@ -18,7 +18,12 @@ import _ from 'lodash'
 export default class extends React.Component {
   constructor () {
     super()
-    this.state = { animationIndex: 0, locked: false, scrolling: false }
+    this.state = {
+      animationIndex: 0,
+      locked: false,
+      scrolling: false,
+      scrollingUp: false
+    }
   }
 
   componentDidMount () {
@@ -37,13 +42,14 @@ export default class extends React.Component {
     }, 3000)
   }
 
-  setAnimation = i => () => {
+  setAnimation = i => (e, dir) => {
+    this.setState({ scrollingUp: e.previousPosition == 'above' })
     if (i == 5) {
       this.setState({ animationIndex: 5 })
       setTimeout(() => {
         this.setState({ animationIndex: 6 })
-        setTimeout(() => this.setState({ animationIndex: 7 }), 100)
-      }, 200)
+        setTimeout(() => this.setState({ animationIndex: 7 }), 50)
+      }, 50)
     } else {
       this.setState({ animationIndex: i })
     }
@@ -58,7 +64,11 @@ export default class extends React.Component {
             <small>Scroll</small>
             <Arrow />
           </div>
+          <div className='up-arrow'>
+            <Arrow />
+          </div>
           <div className='animation-container'>
+            <div className='indicator' />
             <div className='half-circle'>
               <svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'>
                 <path
@@ -98,38 +108,46 @@ export default class extends React.Component {
           <ol>
             <li>
               <div>
+                <div className='waypoint'>
+                  <Waypoint onEnter={this.setAnimation(1)} />
+                </div>
                 <Blurb
                   header='First—the fundamentals'
                   paragraph='Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
                 />
               </div>
-              <Waypoint onEnter={this.setAnimation(1)} />
             </li>
             <li>
               <div>
+                <div className='waypoint'>
+                  <Waypoint onEnter={this.setAnimation(2)} />
+                </div>
                 <Blurb
                   header='Make it work'
                   paragraph='Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
                 />
               </div>
-              <Waypoint onEnter={this.setAnimation(2)} />
             </li>
             <li>
               <div>
+                <div className='waypoint'>
+                  <Waypoint onEnter={this.setAnimation(3)} />
+                </div>
                 <Blurb
                   header='Devil’s in the details'
                   paragraph='Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
                 />
-                <Waypoint onEnter={this.setAnimation(3)} />
               </div>
             </li>
             <li>
               <div>
+                <div className='waypoint'>
+                  <Waypoint onEnter={this.setAnimation(4)} />
+                </div>
                 <Blurb
                   header='Have fun'
                   paragraph='Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
                 />
-                <Waypoint onEnter={this.setAnimation(4)} />
               </div>
             </li>
           </ol>
@@ -253,12 +271,22 @@ export default class extends React.Component {
           `}
         </style>
         <style jsx>{`
+        .up-arrow {
+          position: sticky;
+          top: 50%;
+          transform: translateY(-50%) rotateZ(180deg);
+          display: ${this.state.scrollingUp && this.state.animationIndex >= 1 ? 'block' : 'none'}
+        }
+        .waypoint {
+          position: relative;
+          top: 50vh;
+        }
         .bottom-arrow {
           position: fixed;
           bottom: 10px;
           opacity: ${!this.state.scrolling && this.state.animationIndex > 0 && this.state.animationIndex <= 5 ? '1' : '0'};
           transform: translateX(-50%);
-          transition: opacity 0.7s ease-in;
+          transition: opacity ${this.state.scrolling ? '0.2s' : '0.7s'} ease-in;
           z-index: -1;
           transform: scale(0.7);
           display: inline-block;
@@ -286,7 +314,6 @@ export default class extends React.Component {
           margin-right: ${gutterSize}px;
           text-align: center;
           padding-top: 25px;
-          padding-bottom: calc(100vh - 723px);
         }
         .right {
           ${columns(4)}
@@ -297,14 +324,18 @@ export default class extends React.Component {
           top: calc(50% - 250px);
           max-width: inherit;
           z-index: -1;
-          position: sticky;
-          display: flex;
+          position: fixed;
           justify-content: space-evenly;
           align-items: center;
           transition: opacity 0.3s, transform 0.5s ease-in-out;
           transform: translate3d(0, 0, 0);
+          display: ${this.state.scrollingUp ? 'none' : 'flex'};
         }
-        .animation-container div {
+        .animation-container .half-circle,
+        .animation-container .box,
+        .animation-container .circle,
+        .animation-container .horn,
+        .animation-container .box-two {
           width: 100px;
           height: 100px;
           border: 3px solid ${colors.gray3};
@@ -351,7 +382,7 @@ export default class extends React.Component {
           height: calc(100vh - (${footerHeight + navHeight}px));
           min-height: 650px;
           display: flex;
-          padding-top: ${margins.m}px;
+          align-items: center;
         }
         ${(() => {
           const step2 = `
@@ -486,7 +517,7 @@ export default class extends React.Component {
                 border-width: 7px !important;
               }
               .animation-container .horn {
-                transform: scale(0.95) translate(75px, 18px) !important;
+                transform: scale(0.95) translate(74px, 18px) !important;
               }
               .animation-container .horn svg {
                 border-top: 5px solid ${colors.gray3} !important;
@@ -505,16 +536,16 @@ export default class extends React.Component {
           margin-bottom: 50vh;
         }
         ol li {
-          height: 2000px;
+          height: 1200px;
           counter-increment: step-counter;
-          padding: 25vh 0;
+          padding: 200px 0;
         }
-        ol li div {
+        ol li div:not(.waypoint) {
           position: sticky;
           top: 50vh;
           transform: translateY(-50%);
         }
-        ol li div:before {
+        ol li div:not(.waypoint):before {
           content: counter(step-counter) '.';
           position: absolute;
           top: -1px;
