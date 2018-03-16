@@ -5,7 +5,9 @@ import {
   colors,
   type,
   margins,
-  gutterSize
+  gutterSize,
+  footerHeight,
+  navHeight
 } from '../lib/styles'
 import Blurb from './blurb'
 import ContactForm from '../components/contact-form'
@@ -16,7 +18,23 @@ import _ from 'lodash'
 export default class extends React.Component {
   constructor () {
     super()
-    this.state = { animationIndex: 0 }
+    this.state = { animationIndex: 0, locked: false, scrolling: false }
+  }
+
+  componentDidMount () {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = event => {
+    clearTimeout(this.isScrolling)
+    this.setState({ scrolling: true })
+    this.isScrolling = setTimeout(() => {
+      this.setState({ scrolling: false })
+    }, 3000)
   }
 
   setAnimation = i => () => {
@@ -36,6 +54,10 @@ export default class extends React.Component {
       <div className='wrapper'>
         <div className='left'>
           <Arrow />
+          <div className='bottom-arrow'>
+            <small>Scroll</small>
+            <Arrow />
+          </div>
           <div className='animation-container'>
             <div className='half-circle'>
               <svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'>
@@ -75,47 +97,52 @@ export default class extends React.Component {
           </div>
           <ol>
             <li>
-              <Waypoint onEnter={this.setAnimation(1)} />
               <div>
                 <Blurb
                   header='First—the fundamentals'
                   paragraph='Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
                 />
               </div>
+              <Waypoint onEnter={this.setAnimation(1)} />
             </li>
             <li>
-              <Waypoint onEnter={this.setAnimation(2)} />
               <div>
                 <Blurb
                   header='Make it work'
                   paragraph='Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
                 />
               </div>
+              <Waypoint onEnter={this.setAnimation(2)} />
             </li>
             <li>
-              <Waypoint onEnter={this.setAnimation(3)} />
               <div>
                 <Blurb
                   header='Devil’s in the details'
                   paragraph='Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
                 />
+                <Waypoint onEnter={this.setAnimation(3)} />
               </div>
             </li>
             <li>
-              <Waypoint onEnter={this.setAnimation(4)} />
               <div>
                 <Blurb
                   header='Have fun'
                   paragraph='Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
                 />
+                <Waypoint onEnter={this.setAnimation(4)} />
               </div>
             </li>
           </ol>
-          <Waypoint onEnter={this.setAnimation(5)} />
-          <ContactForm />
+          <div className='form-container'>
+            <Waypoint onEnter={this.setAnimation(5)} />
+            <ContactForm focused={this.state.animationIndex == 6} />
+          </div>
         </div>
         <style jsx global>
           {`
+          body {
+            overflow: ${this.state.locked ? 'hidden' : 'inherit'};
+          }
           @keyframes hornbounce {
             0% {
               transform: scaleX(0.05);
@@ -226,28 +253,51 @@ export default class extends React.Component {
           `}
         </style>
         <style jsx>{`
+        .bottom-arrow {
+          position: fixed;
+          bottom: 10px;
+          opacity: ${!this.state.scrolling && this.state.animationIndex > 0 && this.state.animationIndex <= 5 ? '1' : '0'};
+          transform: translateX(-50%);
+          transition: opacity 0.7s ease-in;
+          z-index: -1;
+          transform: scale(0.7);
+          display: inline-block;
+          margin-left: -49px;
+        }
+        .bottom-arrow path, .bottom-arrow circle {
+          stroke-width: 2.5px;
+        }
+        .bottom-arrow small {
+          ${type.sourceCodeLabelL}
+          color: ${colors.blue1};
+          letter-spacing: 2px;
+          position: absolute;
+          margin-left: -10px;
+          margin-top: -33px;
+        }
         .wrapper {
           ${layout.desktop}
           display: flex;
+          align-item: stretch;
         }
         .left {
           ${columns(5)}
           width: 100%;
-          height: 100px;
           margin-right: ${gutterSize}px;
           text-align: center;
           padding-top: 25px;
+          padding-bottom: calc(100vh - 723px);
         }
         .right {
           ${columns(4)}
         }
         .animation-container {
-          height: 50vh;
+          height: 500px;
           width: inherit;
-          top: calc(50% - 25vh);
+          top: calc(50% - 250px);
           max-width: inherit;
           z-index: -1;
-          position: fixed;
+          position: sticky;
           display: flex;
           justify-content: space-evenly;
           align-items: center;
@@ -296,6 +346,12 @@ export default class extends React.Component {
           opacity: 0;
           transform: translateX(100vw);
           transition: transform 0.7s cubic-bezier(0.860, 0.000, 0.070, 1.000), opacity 0.3s ease-in-out;
+        }
+        .form-container {
+          height: calc(100vh - (${footerHeight + navHeight}px));
+          min-height: 650px;
+          display: flex;
+          padding-top: ${margins.m}px;
         }
         ${(() => {
           const step2 = `
@@ -423,7 +479,7 @@ export default class extends React.Component {
                 stroke-width: 9px;
               }
               .animation-container .half-circle {
-                transform: scale(1.8) translate(-33px, 33px) !important;
+                transform: scale(1.79) translate(-33px, 33.5px) !important;
               }
               .animation-container .circle {
                 transform: scale(1.1) translate(24px, 24px) !important;
@@ -449,13 +505,14 @@ export default class extends React.Component {
           margin-bottom: 50vh;
         }
         ol li {
-          height: 100vh;
-          display: flex;
-          align-items: center;
+          height: 2000px;
           counter-increment: step-counter;
+          padding: 25vh 0;
         }
         ol li div {
-          position: relative;
+          position: sticky;
+          top: 50vh;
+          transform: translateY(-50%);
         }
         ol li div:before {
           content: counter(step-counter) '.';
