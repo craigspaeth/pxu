@@ -15,6 +15,9 @@ export default () => (
         -moz-osx-font-smoothing: grayscale;
         color: ${colors.gray2};
       }
+      ::selection {
+        background: ${colors.blue5};
+      }
       * {
         box-sizing: border-box;
         outline: none;

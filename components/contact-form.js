@@ -22,6 +22,18 @@ export default class extends React.Component {
     this.state = { missing: [] }
   }
 
+  componentDidUpdate () {
+    this.maybeFocusOnFirstInput()
+  }
+
+  componentDidMount () {
+    this.maybeFocusOnFirstInput()
+  }
+
+  maybeFocusOnFirstInput () {
+    if (this.props.focused) this.refs.name.focus()
+  }
+
   onSubmit = async e => {
     e.preventDefault()
     const from = this.refs.email.value
@@ -96,9 +108,7 @@ export default class extends React.Component {
         </style>
         <style jsx>{`
           .container {
-            min-height: 70vh;
             max-width: 50vw;
-            margin-bottom: ${margins.xl}px;
           }
           .right {
             ${columns(4)}
@@ -127,6 +137,7 @@ export default class extends React.Component {
           }
           button {
             background: ${colors.gray1};
+            border: 0;
             color: white;
             width: 100%;
             padding: 10px;
