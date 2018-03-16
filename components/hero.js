@@ -41,7 +41,7 @@ export default class extends React.Component {
         <style jsx>{`
         .arrow {
           position: absolute;
-          bottom: 0;
+          bottom: ${margins.l}px;
           left: 50%;
         }
         .viz {
