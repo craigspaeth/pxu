@@ -21,7 +21,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "heroku -postbuild": "next build",
+    "heroku-postbuild": "next build",
     "start": "node -r dotenv/config server.js"
   },
   "repository": {
