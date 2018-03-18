@@ -7,7 +7,7 @@ export default ({ icon, paragraph, header }) => {
         {icon && <img src={icon} />}
         {header}
       </h4>
-      <p>{paragraph}</p>
+      <p dangerouslySetInnerHTML={{ __html: paragraph }} />
       <style jsx>{`
       h4 {
         ${type.nimbusS}
@@ -24,7 +24,8 @@ export default ({ icon, paragraph, header }) => {
       }
       @media screen and (max-width: 480px) {
         h4 {
-          ${type.helveticaXL}
+          ${type.helveticaXL};
+          ${!icon && 'padding-left: 33px'};
         }
         img {
           width: 32px;

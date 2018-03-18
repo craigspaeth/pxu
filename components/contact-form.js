@@ -169,7 +169,7 @@ export default class extends React.Component {
           }
           @media screen and (max-width: 480px) {
             .container {
-              ${layout.mobile}
+              max-width: none;
             }
             .right {
               position: relative;
