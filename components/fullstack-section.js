@@ -325,7 +325,7 @@ export default class extends React.Component {
           {`
         .wrapper {
           background: #27274A;
-          margin: ${margins.xxl}px auto;
+          margin: 0 auto ${margins.xxl}px auto;
           padding-top: ${margins.xl}px;
           padding-bottom: ${margins.xl}px;
           color: white;

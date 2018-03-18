@@ -10,6 +10,7 @@ import WhoWeAre from '../components/who-we-are'
 import HowWeWork from '../components/how-we-work'
 import Footer from '../components/footer'
 import initHeroViz from '../lib/hero-viz'
+import { colors, margins } from '../lib/styles'
 
 export default class extends React.Component {
   render () {
@@ -17,12 +18,14 @@ export default class extends React.Component {
       <div>
         <Meta />
         <Nav />
-        <Hero />
-        <Header
-          eyebrow='What we do'
-          copy='We build functional digital products with attention to detail'
-        />
-        <UISection />
+        <div className='gray-bg'>
+          <Hero />
+          <Header
+            eyebrow='What we do'
+            copy='We build functional digital products with attention to detail'
+          />
+          <UISection />
+        </div>
         <FullstackSection />
         <MoreSection />
         <Header
@@ -33,6 +36,12 @@ export default class extends React.Component {
         <WeveWorkedWith />
         <HowWeWork />
         <Footer />
+        <style jsx>{`
+        .gray-bg {
+          background: ${colors.gray7};
+          padding-bottom: ${margins.xxl}px;
+        }
+        `}</style>
       </div>
     )
   }

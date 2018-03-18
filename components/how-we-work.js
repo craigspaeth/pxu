@@ -107,6 +107,7 @@ export default class extends React.Component {
           </div>
           <ol>
             <li>
+              <img src='/static/how-we-work/one.png' className='mobile-only' />
               <div>
                 <div className='waypoint'>
                   <Waypoint onEnter={this.setAnimation(1)} />
@@ -118,6 +119,7 @@ export default class extends React.Component {
               </div>
             </li>
             <li>
+              <img src='/static/how-we-work/two.png' className='mobile-only' />
               <div>
                 <div className='waypoint'>
                   <Waypoint onEnter={this.setAnimation(2)} />
@@ -129,6 +131,10 @@ export default class extends React.Component {
               </div>
             </li>
             <li>
+              <img
+                src='/static/how-we-work/three.png'
+                className='mobile-only'
+              />
               <div>
                 <div className='waypoint'>
                   <Waypoint onEnter={this.setAnimation(3)} />
@@ -140,6 +146,7 @@ export default class extends React.Component {
               </div>
             </li>
             <li>
+              <img src='/static/how-we-work/four.png' className='mobile-only' />
               <div>
                 <div className='waypoint'>
                   <Waypoint onEnter={this.setAnimation(4)} />
@@ -153,6 +160,7 @@ export default class extends React.Component {
           </ol>
           <div className='form-container'>
             <Waypoint onEnter={this.setAnimation(5)} />
+            <img src='/static/how-we-work/logo.png' className='mobile-only' />
             <ContactForm focused={this.state.animationIndex == 6} />
           </div>
         </div>
@@ -271,6 +279,11 @@ export default class extends React.Component {
           `}
         </style>
         <style jsx>{`
+        .mobile-only {
+          display: none;
+          max-width: 100%;
+          margin-bottom: ${margins.m}px;
+        }
         .up-arrow {
           position: sticky;
           top: 50%;
@@ -533,7 +546,7 @@ export default class extends React.Component {
             ` }[this.state.animationIndex]
         })()}
         ol {
-          margin-bottom: 50vh;
+          margin-bottom: 0;
         }
         ol li {
           height: 1200px;
@@ -560,6 +573,41 @@ export default class extends React.Component {
         @media screen and (max-width: 480px) {
           .wrapper {
             ${layout.mobile}
+          }
+          .left {
+            display: none;
+          }
+          .intro {
+            min-height: 0;
+            padding-bottom: 100px;
+          }
+          .form-container {
+            height: auto;
+            padding-bottom: ${margins.xl}px;
+            display: block;
+          }
+          .form-container img {
+            margin-bottom: ${margins.m}px;
+          }
+          ol li {
+            height: auto;
+            padding: 0 0 100px 0;
+          }
+          ol li div:not(.waypoint) {
+            position: relative;
+            top: 0;
+            transform: none;
+          }
+          ol li div:not(.waypoint):before {
+            left: 0;
+            top: 3px;
+            font-size: 19px;
+          }
+          li h4 {
+            padding-left: 35px;
+          }
+          .mobile-only {
+            display: block;
           }
         }
       `}</style>
