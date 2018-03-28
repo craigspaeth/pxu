@@ -16,7 +16,7 @@ export default () => (
         color: ${colors.gray2};
       }
       ::selection {
-        background: ${colors.blue5};
+        background: ${colors.blue4};
       }
       * {
         box-sizing: border-box;
@@ -30,6 +30,12 @@ export default () => (
         font-family: "Nimbus";
         src: url("/static/fonts/nimbus-d-bold.otf");
         font-weight: bold;
+      }
+      }
+      @font-face {
+        font-family: "Nimbus";
+        src: url("/static/fonts/nimbus-d-semibold.otf");
+        font-weight: 500;
       }
       @font-face {
         font-family: "Source Code";

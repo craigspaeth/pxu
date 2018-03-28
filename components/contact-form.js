@@ -5,7 +5,7 @@ import _ from 'lodash'
 
 const inputStyle = `
   display: block;
-  ${type.helveticaM};
+  ${type.helveticaL};
   border: 0;
   border-bottom: 2px solid ${colors.gray6};
   padding: 10px 0px;
@@ -90,6 +90,13 @@ export default class extends React.Component {
               />
             </label>
             <button type='submit'>Submit</button>
+            <small className='or-email'>
+              <strong>Or email us:</strong>
+              <a href='mailto: info@pixelunicorns.com'>
+                <img src='/static/mail.svg' />
+                info@pixelunicorns.com
+              </a>
+            </small>
           </form>
         </div>
         <style jsx global>
@@ -107,6 +114,23 @@ export default class extends React.Component {
         `}
         </style>
         <style jsx>{`
+          .or-email {
+            ${type.helveticaM}
+            padding-top: ${margins.m}px;
+            text-align: center;
+            display: block;
+          }
+          .or-email strong {
+            font-weight: bold;
+          }
+          .or-email img {
+            vertical-align: middle;
+            margin: 0 ${margins.xxs}px;
+          }
+          .or-email a {
+            color: ${colors.gray3};
+            text-decoration: none;
+          }
           .container {
             max-width: 50vw;
           }
@@ -157,8 +181,14 @@ export default class extends React.Component {
           input {
             ${inputStyle}
           }
-          input:focus, input:active {
+          label {
+            transition: color 0.3s;
+          }
+          label:focus-within input {
             border-color: ${colors.blue1};
+          }
+          label:focus-within {
+            color: ${colors.blue1};
           }
           @media screen and (max-width: 750px) {
             .right {

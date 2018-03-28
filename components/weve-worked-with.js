@@ -65,14 +65,14 @@ export default () => {
         .wrapper {
           background: ${colors.gray7};
           margin: ${margins.xxl}px auto;
-          padding-top: ${margins.xl}px;
-          padding-bottom: ${margins.xl}px;
+          padding: ${margins.xxl}px 0;
         }
         .inner {
           ${layout.desktop}
         }
         .logos {
           ${columnList(10, 2)}
+          grid-column-gap: ${margins.xs}px;
           text-align: center;
           margin-top: ${margins.m}px;
         }
@@ -82,10 +82,12 @@ export default () => {
           background-blend-mode: multiply;
           width: 100%;
           height: 100px;
-          margin-bottom: ${margins.s}px;
+          margin-bottom: ${margins.xs}px;
+          position: relative;
+          opacity: 0.8;
         }
         .logo.contain {
-          background-size: contain;
+          background-size: 90%;
         }
         @media screen and (max-width: 950px) {
           .logos {

@@ -8,14 +8,14 @@ import {
   colors
 } from '../lib/styles'
 
-export default ({ eyebrow, copy }) => {
+export default ({ eyebrow, copy, scrollTo }) => {
   return (
     <div>
       <p>
         info@pixelunicorns.com<br />
         © 2018 PixelUnicorns LLC
       </p>
-      <a>Back to top</a>
+      <a onClick={() => scrollTo('heroTop')}>Back to top</a>
       <style jsx>{`
         div {
           border-top: 1px solid ${colors.gray6};
@@ -37,6 +37,7 @@ export default ({ eyebrow, copy }) => {
           line-height: 26px;
           position: absolute;
           right: 0;
+          cursor: pointer;
         }
         a, p {
           display: inline-block;

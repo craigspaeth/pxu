@@ -22,6 +22,9 @@ export default () => {
       </div>
       <div className='img' />
       <style jsx>{`
+      .wrapper {
+        padding-bottom: ${margins.xxxl}px;
+      }
       .inner {
         ${layout.desktop}
         margin: ${margins.xxl}px auto -200px auto;
