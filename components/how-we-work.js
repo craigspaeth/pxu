@@ -435,7 +435,7 @@ export default class extends React.Component {
               transform: scale(0.7) translateX(-50px) !important;
             }
             .animation-container .half-circle * {
-              stroke: ${colors.fushia1};
+              stroke: ${colors.green1};
             }
             .animation-container .half-circle {
               animation: half-circle-wiggle 2s  cubic-bezier(.36,.07,.19,.97) infinite;
@@ -453,16 +453,16 @@ export default class extends React.Component {
               animation: box-two-wiggle 2s  cubic-bezier(.36,.07,.19,.97) infinite;
             }
             .animation-container .box {
-              border-color: ${colors.blue1} !important;
+              border-color: ${colors.red1} !important;
             }
             .animation-container .circle {
-              border-color: ${colors.green1} !important;
+              border-color: ${colors.blue1} !important;
             }
             .animation-container .horn * {
-              stroke: ${colors.fushia1};
+              stroke: ${colors.yellow1};
             }
             .animation-container .box-two {
-              border-color: ${colors.green1} !important;
+              border-color: ${colors.red1} !important;
             }
           `
           const step5 = `
@@ -533,7 +533,7 @@ export default class extends React.Component {
                 transform: scale(0.95) translate(74px, 18px) !important;
               }
               .animation-container .horn svg {
-                border-top: 5px solid ${colors.gray3} !important;
+                border-top: 2px solid ${colors.gray3} !important;
                 border-left: 3px solid ${colors.gray3} !important;
               }
               .animation-container .box-two {
@@ -549,7 +549,7 @@ export default class extends React.Component {
           margin-bottom: 0;
         }
         ol li {
-          height: 1200px;
+          height: 800px;
           counter-increment: step-counter;
           padding: 200px 0;
         }

@@ -11,11 +11,12 @@ import {
 export default ({ eyebrow, copy }) => {
   return (
     <div>
-      <h3>{eyebrow}</h3>
+      {eyebrow && <h3>{eyebrow}</h3>}
       <h1>{copy}</h1>
       <style jsx>{`
         div {
           ${layout.desktop}
+          ${eyebrow && 'margin-bottom: -20px'};
         }
         @media screen and (max-width: 480px) {
           div {
@@ -26,8 +27,8 @@ export default ({ eyebrow, copy }) => {
           ${columns(7)}
         }
         h1 {
-          ${type.nimbusM}
-          font-weight: bold;
+          ${eyebrow ? type.nimbusM : type.nimbusL}
+          font-weight: ${eyebrow ? 'bold' : '500'};
         }
         h3 {
           ${type.sourceCodeLabelL}

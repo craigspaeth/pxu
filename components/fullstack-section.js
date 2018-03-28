@@ -324,10 +324,10 @@ export default class extends React.Component {
         <style jsx>
           {`
         .wrapper {
-          background: #27274A;
+          background: ${colors.blue1};
           margin: 0 auto ${margins.xxl}px auto;
-          padding-top: ${margins.xl}px;
-          padding-bottom: ${margins.xl}px;
+          padding-top: ${margins.xxl}px;
+          padding-bottom: ${margins.xxl}px;
           color: white;
           position: relative;
         }
@@ -338,7 +338,7 @@ export default class extends React.Component {
           line-height: 22px;
           top: 0;
           ${type.sourceCodeCaptionM}
-          color: #9797D6;
+          color: ${colors.blue3};
           overflow: hidden;
           height: 100%;
           width: 100%;
@@ -352,12 +352,12 @@ export default class extends React.Component {
           left: 0;
           position: absolute;
           height: 100%;
-          background: linear-gradient(to left, #27274A, rgba(39, 39, 74, 0));
+          background: linear-gradient(to left, ${colors.blue1}, rgba(39, 39, 74, 0));
         }
         .code:before {
           content: '.';
           color: transparent;
-          background: linear-gradient(to top, #27274A, rgba(39, 39, 74, 0));
+          background: linear-gradient(to top, ${colors.blue1}, rgba(39, 39, 74, 0));
           position: absolute;
           height: 15%;
           width: 100%;
@@ -365,7 +365,7 @@ export default class extends React.Component {
           bottom: 0;
         }
         .code .numerals {
-          border-right: 1px solid #454588;
+          border-right: 1px solid ${colors.blue2};
         }
         .code code {
           padding: ${margins.xs}px;
@@ -396,15 +396,14 @@ export default class extends React.Component {
           grid-row-gap: ${margins.xs}px;
         }
         .left li {
-          background: #151538 no-repeat center center;
+          background: #0f0fe3b0 no-repeat center center;
           background-blend-mode: lighten;
           height: 100px;
           padding-top: 100%;
           transition: background-color 0.5s ease-in-out;
         }
         .left li:nth-child(${1 + this.state.codeBlockIndex}) {
-          background-color: #1c1c5f;
-          border-color: #1c1c5f;
+          background-color: #0f0fe3b;
         }
         .left li:nth-child(1n+4) {
           grid-row-start: 2;
@@ -412,7 +411,6 @@ export default class extends React.Component {
         @media screen and (max-width: 1100px) {
           .left li {
             background-size: contain;
-            border: 7px solid #151538;
           }
         }
         @media screen and (max-width: 1000px) {

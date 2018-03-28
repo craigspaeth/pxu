@@ -16,11 +16,13 @@ export default ({ icon, paragraph, header }) => {
       img {
         vertical-align: middle;
         margin-right: ${margins.xs}px;
+        position: relative;
+        top: -3px;
       }
       p {
-        ${columns(5)}
-        ${type.metaSerifM}
-        margin-top: ${margins.xs}px;
+        ${columns(4)}
+        ${type.metaSerifS}
+        margin-top: ${margins.xs + 5}px;
       }
       @media screen and (max-width: 480px) {
         h4 {
