@@ -57,9 +57,17 @@ export default class extends React.Component {
 
   render () {
     return (
+    <div>
+      <div className='intro'>
+        <Waypoint onEnter={this.setAnimation(0)} />
+        <Blurb
+          icon='/static/muscle.svg'
+          header='How we work'
+          paragraph='In our projects we follow a core set of values and process that guide us. Let’s take a look.'
+        />
+      </div>
       <div className='wrapper'>
         <div className='left'>
-          <Arrow />
           <div className='bottom-arrow'>
             <small>Scroll</small>
             <Arrow />
@@ -97,14 +105,6 @@ export default class extends React.Component {
           </div>
         </div>
         <div className='right'>
-          <div className='intro'>
-            <Waypoint onEnter={this.setAnimation(0)} />
-            <Blurb
-              icon='/static/muscle.svg'
-              header='How we work'
-              paragraph='In our projects we follow a core set of values and process that guide us. Let’s take a look.'
-            />
-          </div>
           <ol>
             <li>
               <img src='/static/how-we-work/one.png' className='mobile-only' />
@@ -279,6 +279,13 @@ export default class extends React.Component {
           `}
         </style>
         <style jsx>{`
+        .intro {
+          ${columns(4)}
+          margin: auto;
+          display: block;
+          text-align: center;
+          margin-bottom: 100px;
+        }
         .mobile-only {
           display: none;
           max-width: 100%;
@@ -567,9 +574,6 @@ export default class extends React.Component {
           font-size: 26px;
           color: ${colors.blue1};
         }
-        .intro {
-          min-height: 50vh;
-        }
         @media screen and (max-width: 480px) {
           .wrapper {
             ${layout.mobile}
@@ -612,6 +616,7 @@ export default class extends React.Component {
         }
       `}</style>
       </div>
+    </div>
     )
   }
 }

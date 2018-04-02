@@ -4,7 +4,8 @@ import {
   type,
   columnList,
   colors,
-  layout
+  layout,
+  gutterSize
 } from '../lib/styles'
 import Blurb from './blurb'
 
@@ -12,51 +13,41 @@ export default () => {
   return (
     <div className='wrapper'>
       <div className='inner'>
-        <Blurb
-          icon='/static/weve-worked-with-icon.svg'
-          header='Tech startups to healthcare giants'
-          paragraph='We’ve worked with a wide range of companies in a variety of industries including technology, liquor, fashion, real estate, healthcare, and more. We love solving problems from all sorts of backgrounds and embrace a new challenge.'
-        />
+        <div className='blurb'>
+          <Blurb
+            icon='/static/weve-worked-with-icon.svg'
+            header='Tech startups to healthcare giants'
+            paragraph='We’ve worked with a wide range of companies in a variety of industries including technology, liquor, fashion, real estate, healthcare, and more. We love solving problems from all sorts of backgrounds and embrace a new challenge.'
+          />
+        </div>
         <div className='logos'>
-          <div
-            className='logo'
-            style={{ backgroundImage: 'url(/static/logos/abinbev.png)' }}
-          />
-          <div
-            className='logo'
-            style={{ backgroundImage: 'url(/static/logos/artsy.png)' }}
-          />
-          <div
-            className='logo'
-            style={{ backgroundImage: 'url(/static/logos/campari.png)' }}
-          />
-          <div
-            className='logo contain'
-            style={{ backgroundImage: 'url(/static/logos/investforward.png)' }}
-          />
-          <div
-            className='logo'
-            style={{ backgroundImage: 'url(/static/logos/istar.png)' }}
-          />
           <div
             className='logo'
             style={{ backgroundImage: 'url(/static/logos/merck.png)' }}
           />
           <div
             className='logo'
-            style={{ backgroundImage: 'url(/static/logos/observer.png)' }}
+            style={{ backgroundImage: 'url(/static/logos/verizon.png)' }}
           />
           <div
             className='logo'
             style={{ backgroundImage: 'url(/static/logos/sonos.png)' }}
           />
           <div
-            className='logo contain'
-            style={{ backgroundImage: 'url(/static/logos/squarespace.png)' }}
+            className='logo'
+            style={{ backgroundImage: 'url(/static/logos/abinbev.png)' }}
           />
+          {/* <div
+            className='logo'
+            style={{ backgroundImage: 'url(/static/logos/artsy.png)' }}
+          /> */}
           <div
             className='logo'
-            style={{ backgroundImage: 'url(/static/logos/verizon.png)' }}
+            style={{ backgroundImage: 'url(/static/logos/campari.png)' }}
+          />
+          <div
+            className='logo contain'
+            style={{ backgroundImage: 'url(/static/logos/squarespace.png)' }}
           />
         </div>
       </div>
@@ -69,20 +60,27 @@ export default () => {
         }
         .inner {
           ${layout.desktop}
+          display: flex;
+          align-items: center;
+        }
+        .blurb {
+          ${columns(4)}
         }
         .logos {
-          ${columnList(10, 2)}
+          ${columnList(6, 2)}
+          margin-left: ${gutterSize}px;
           grid-column-gap: ${margins.xs}px;
           text-align: center;
-          margin-top: ${margins.m}px;
+          flex-grow: 1;
         }
         .logo {
           display: inline-block;
-          background: ${colors.gray7} no-repeat center center;
+          background: white no-repeat center center;
           background-blend-mode: multiply;
           width: 100%;
           height: 100px;
           margin-bottom: ${margins.xs}px;
+          padding-top: 100%;
           position: relative;
           opacity: 0.8;
         }
