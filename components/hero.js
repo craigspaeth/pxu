@@ -99,6 +99,12 @@ export default class extends React.Component {
           .h2wrapper {
             ${layout.mobile}
           }
+          .inner {
+            left: 0;
+          }
+          .arrow {
+            transform: translateX(-50%);
+          }
         }
       `}</style>
       </div>

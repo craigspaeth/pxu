@@ -104,7 +104,7 @@ export default class extends React.Component {
         width: 50px;
         vertical-align: middle;
         background: url(/static/logo-s.png) no-repeat;
-        margin-right: ${margins.m}px;
+        margin-right: ${margins.s}px;
       }
       nav {
         padding: ${margins.xs}px;

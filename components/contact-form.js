@@ -131,9 +131,6 @@ export default class extends React.Component {
             color: ${colors.gray3};
             text-decoration: none;
           }
-          .container {
-            max-width: 50vw;
-          }
           .right {
             ${columns(4)}
           }
@@ -204,6 +201,9 @@ export default class extends React.Component {
             .right {
               position: relative;
               right: 0;
+            }
+            p {
+              ${type.metaSerifS}
             }
           }
         `}</style>

@@ -20,21 +20,21 @@ export default ({ icon, paragraph, header }) => {
         top: -3px;
       }
       p {
-        ${columns(4)}
         ${type.metaSerifS}
         margin-top: ${margins.xs + 5}px;
+      }
+      @media screen and (max-width: 650px) {
+        p {
+          max-width: none;
+        }
       }
       @media screen and (max-width: 480px) {
         h4 {
           ${type.helveticaXL};
-          ${!icon && 'padding-left: 33px'};
         }
         img {
           width: 32px;
           margin-right: ${margins.xs}px;
-        }
-        p {
-          ${type.metaSerifS}
         }
       }
       `}</style>
