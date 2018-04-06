@@ -352,12 +352,12 @@ export default class extends React.Component {
           left: 0;
           position: absolute;
           height: 100%;
-          background: linear-gradient(to left, ${colors.blue1}, rgba(39, 39, 74, 0));
+          background: linear-gradient(to left, ${colors.blue1}, #3232fa00);
         }
         .code:before {
           content: '.';
           color: transparent;
-          background: linear-gradient(to top, ${colors.blue1}, rgba(39, 39, 74, 0));
+          background: linear-gradient(to top, ${colors.blue1}, #3232fa00);
           position: absolute;
           height: 15%;
           width: 100%;
@@ -398,24 +398,22 @@ export default class extends React.Component {
         .left li {
           background: #0f0fe3b0 no-repeat center center;
           background-blend-mode: lighten;
-          height: 100px;
-          padding-top: 100%;
           transition: background-color 0.5s ease-in-out;
         }
+        .left li:after {
+          content: '';
+          display: block;
+          padding-bottom: 100%;
+        }
         .left li:nth-child(${1 + this.state.codeBlockIndex}) {
-          background-color: #0f0fe3b;
+          background-color: #0000cad4;
         }
         .left li:nth-child(1n+4) {
           grid-row-start: 2;
         }
         @media screen and (max-width: 1100px) {
           .left li {
-            background-size: contain;
-          }
-        }
-        @media screen and (max-width: 1000px) {
-          .code:after {
-            background: linear-gradient(to left, #27274A, #27274A, rgba(39, 39, 74, 0));
+            background-size: 80%;
           }
         }
         @media screen and (max-width: 900px) {

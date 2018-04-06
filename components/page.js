@@ -72,7 +72,7 @@ export default class extends React.Component {
         <WhoWeAre />
         <WeveWorkedWith />
         <HowWeWork />
-        <div ref='workWithUs'>
+        <div ref='workWithUs' className='work-with-us'>
           <Waypoint onEnter={this.setNavIndex(3)} />
         </div>
         <Footer scrollTo={this.scrollTo.bind(this)} />
@@ -80,6 +80,14 @@ export default class extends React.Component {
           {`
           .who-we-are-break {
             margin-top: ${margins.xxxxl}px;
+          }
+          .work-with-us {
+            top: -680px;
+          }
+          @media screen and (max-width: 480px) {
+            .who-we-are-break {
+              margin-top: ${margins.xxl}px;
+            }
           }
         `}
         </style>

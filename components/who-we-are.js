@@ -12,11 +12,13 @@ export default () => {
   return (
     <div className='wrapper'>
       <div className='inner'>
-        <Blurb
-          icon='/static/people-icon.svg'
-          header='The people'
-          paragraph='Our team has decades of experience designing and building digital products and media. We’ve helped grow startups from several to hundreds of people in size, and elevated local newspapers into global publishing brands.'
-        />
+        <div className='blurb-container'>
+          <Blurb
+            icon='/static/people-icon.svg'
+            header='The people'
+            paragraph='Our team has decades of experience designing and building digital products and media. We’ve helped grow startups from several to hundreds of people in size, and elevated local newspapers into global publishing brands.'
+          />
+        </div>
         <ul>
           <li>
             <div className='img' />
@@ -47,6 +49,9 @@ export default () => {
           display: flex;
           justify-content: flex-end;
           margin: ${margins.xxl}px auto;
+        }
+        .blurb-container {
+          ${columns(4)}
         }
         .inner {
           ${columns(9)}

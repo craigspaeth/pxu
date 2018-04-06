@@ -78,24 +78,33 @@ export default () => {
           background: white no-repeat center center;
           background-blend-mode: multiply;
           width: 100%;
-          height: 100px;
           margin-bottom: ${margins.xs}px;
-          padding-top: 100%;
           position: relative;
           opacity: 0.8;
+        }
+        .logo:after {
+          content: '';
+          display: block;
+          padding-bottom: 100%;
         }
         .logo.contain {
           background-size: 90%;
         }
-        @media screen and (max-width: 950px) {
+        @media screen and (max-width: 1150px) {
           .logos {
-            ${columnList(6, 2)}
+            grid-template-columns: 1fr 1fr;
           }
         }
-        }
-        @media screen and (max-width: 650px) {
+        @media screen and (max-width: 950px) {
+          .inner {
+            display: block;
+          }
           .logos {
-            ${columnList(2, 1)}
+            margin: ${margins.l}px 0;
+            grid-template-columns: 1fr 1fr 1fr;
+          }
+          .logo {
+            background-size: 80%;
           }
         }
         @media screen and (max-width: 480px) {
