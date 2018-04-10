@@ -168,7 +168,7 @@ export default class extends React.Component {
         </div>
         <div className='form-container'>
           <img src='/static/how-we-work/logo.png' className='mobile-only' />
-          <ContactForm focused={this.state.animationIndex == 6} />
+          <ContactForm focused={this.state.animationIndex == 5} />
           <div className='final-waypoint'>
             <Waypoint onEnter={this.setAnimation(5)} bottomOffset={100} />
           </div>
