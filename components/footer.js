@@ -32,7 +32,7 @@ export default ({ eyebrow, copy, scrollTo }) => {
           ${type.helveticaM}
           font-weight: bold;
           background: url(/static/footer-arrow.svg) no-repeat right;
-          padding-right: 36px;
+          padding-right: 40px;
           height: 26px;
           line-height: 26px;
           position: absolute;

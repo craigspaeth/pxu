@@ -16,7 +16,7 @@ export default ({ eyebrow, copy }) => {
       <style jsx>{`
         div {
           ${layout.desktop}
-          ${eyebrow && 'margin-bottom: -20px'};
+          ${eyebrow && 'margin-bottom: -15px'};
         }
         @media screen and (max-width: 480px) {
           div {

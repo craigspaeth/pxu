@@ -16,7 +16,7 @@ export default () => {
         <div className='blurb'>
           <Blurb
             icon='/static/weve-worked-with-icon.svg'
-            header='Tech startups to healthcare giants'
+            header='Our clients'
             paragraph='We’ve worked with a wide range of companies in a variety of industries including technology, liquor, fashion, real estate, healthcare, and more. We love solving problems from all sorts of backgrounds and embrace a new challenge.'
           />
         </div>
@@ -70,6 +70,7 @@ export default () => {
           ${columnList(6, 2)}
           margin-left: ${gutterSize}px;
           grid-column-gap: ${margins.xs}px;
+          grid-row-gap: ${margins.xs}px;
           text-align: center;
           flex-grow: 1;
         }
@@ -78,9 +79,8 @@ export default () => {
           background: white no-repeat center center;
           background-blend-mode: multiply;
           width: 100%;
-          margin-bottom: ${margins.xs}px;
           position: relative;
-          opacity: 0.8;
+          opacity: 1;
         }
         .logo:after {
           content: '';
@@ -115,6 +115,9 @@ export default () => {
           }
           .logo {
             background-size: 80% contain;
+          }
+          .logos {
+            margin: 20px 0 0 0;
           }
           .inner {
             ${layout.mobile}

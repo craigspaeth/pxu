@@ -18,7 +18,6 @@ import { debug } from 'util'
 
 export default class extends React.Component {
   shouldComponentUpdate () {
-    if (this.animating) return false
     this.refs.container.className = this.props.scrollingUp
       ? 'animation-container hidden'
       : 'animation-container ' +
@@ -30,20 +29,16 @@ export default class extends React.Component {
 
   render () {
     return (
-      <div
-        ref='container'
-        onTransitionStart={() => (this.animating = true)}
-        onTransitionEnd={() => (this.animating = false)}
-      >
+      <div ref='container'>
         <div className='indicator' />
         <div className='half-circle'>
           <svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'>
             <path
               d='M98.5 1.511C45.29 2.306 2.306 45.291 1.511 98.5H98.5V1.511z'
               stroke={colors.gray3}
-              stroke-width='3'
+              strokeWidth='3'
               fill='none'
-              fill-rule='evenodd'
+              fillRule='evenodd'
             />
           </svg>
         </div>
@@ -54,9 +49,9 @@ export default class extends React.Component {
             <path
               d='M1.5 1.5v47.318L124.899 1.5H1.5z'
               stroke={colors.gray3}
-              stroke-width='3'
+              strokeWidth='3'
               fill='none'
-              fill-rule='evenodd'
+              fillRule='evenodd'
             />
           </svg>
         </div>
@@ -327,6 +322,10 @@ export default class extends React.Component {
         .animation-container.step2 .box {
           opacity: 1;
           transform: translateX(-140px);
+        }
+        .animation-container.step3 .circle {
+          transition: none;
+          border-radius: 100%;
         }
         .animation-container.step3 .horn {
           opacity: 1;

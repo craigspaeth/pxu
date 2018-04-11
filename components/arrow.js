@@ -4,9 +4,9 @@ export default () => {
       <g
         transform='translate(3 1)'
         stroke='#3232C8'
-        stroke-width='2'
+        strokeWidth='2'
         fill='none'
-        fill-rule='evenodd'
+        fillRule='evenodd'
       >
         <circle cx='21' cy='16' r='16' />
         <path d='M42 38L21 59 0 38z' />

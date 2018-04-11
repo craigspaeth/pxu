@@ -23,7 +23,8 @@
   "scripts": {
     "heroku-postbuild": "next build",
     "start": "node -r dotenv/config server.js",
-    "test-prod": "next build && NODE_ENV=production npm start"
+    "test-prod": "next build && NODE_ENV=production npm start",
+    "deploy": "git checkout master && git pull upstream master && git push -f https://git.heroku.com/pixel-unicorns.git master"
   },
   "repository": {
     "type": "git",

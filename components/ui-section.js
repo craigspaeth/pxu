@@ -59,10 +59,12 @@ export default () => {
       }
       @media screen and (max-width: 480px) {
         .wrapper {
-          margin: ${margins.l}px auto;
+          margin: 0;
+          padding-bottom: 0;
         }
         .inner {
           ${layout.mobile}
+          margin-top: ${margins.l}px;
         }
         .img {
           height: 400px;

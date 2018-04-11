@@ -66,13 +66,15 @@ export default class extends React.Component {
         }
         .wrapper {
           height: 100vh;
+          max-width: 100vw;
+          overflow: hidden;
           padding-top: ${navHeight}px;
           padding-bottom: ${navHeight}px;
           margin-bottom: ${margins.xxxxl}px;
         }
         .inner {
           top: 50%;
-          position: relative;
+          position: absolute;
           left: 35px;
           transform: translateY(-50%);
           max-width: 755px;
@@ -93,6 +95,9 @@ export default class extends React.Component {
           margin: 0;
         }
         @media screen and (max-width: 480px) {
+          .wrapper {
+            margin-bottom: ${margins.l}px;
+          }
           h2 {
             ${type.metaSerifM}
           }
@@ -103,7 +108,8 @@ export default class extends React.Component {
             left: 0;
           }
           .arrow {
-            transform: translateX(-50%);
+            transform: translateX(-50%) scale(0.7);
+            bottom: 0;
           }
         }
       `}</style>

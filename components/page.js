@@ -12,12 +12,23 @@ import Footer from '../components/footer'
 import initHeroViz from '../lib/hero-viz'
 import { colors, margins } from '../lib/styles'
 import Waypoint from 'react-waypoint'
-import Router from 'next/router'
+import _ from 'lodash'
 
 export default class extends React.Component {
   constructor () {
     super()
     this.state = { navIndex: 0 }
+  }
+
+  componentDidMount () {
+    const pathname = this.scrollTo(
+      {
+        '/': 'heroTop',
+        '/what-we-do': 'whatWeDo',
+        '/who-we-are': 'whoWeAre',
+        '/work-with-us': 'workWithUs'
+      }[location.pathname]
+    )
   }
 
   scrollTo (section) {
@@ -36,7 +47,7 @@ export default class extends React.Component {
         2: '/who-we-are',
         3: '/work-with-us'
       }[num] || ''
-    Router.push({ pathname })
+    window.history.pushState(null, document.title, pathname)
     this.setState({ navIndex: num - 1 })
   }
 
