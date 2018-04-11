@@ -167,6 +167,10 @@ export default class extends React.Component {
           </div>
         </div>
         <div className='form-container'>
+          <img
+            src='/static/how-we-work/five.png'
+            className='mobile-only mobile-end-img'
+          />
           <img src='/static/how-we-work/logo.png' className='mobile-only' />
           <ContactForm focused={this.state.animationIndex == 5} />
           <div className='final-waypoint'>
@@ -180,6 +184,11 @@ export default class extends React.Component {
           display: block;
           text-align: center;
           margin-bottom: -190px;
+        }
+        .mobile-end-img {
+          transform: scale(0.95);
+          transform-origin: right;
+          margin: -90px 0 40px 0;
         }
         .final-waypoint {
           position: relative;
