@@ -31,6 +31,7 @@ export default ({ icon, paragraph, header }) => {
       @media screen and (max-width: 480px) {
         h4 {
           ${type.helveticaXL};
+          padding-left: ${icon ? '0' : '28px'};
         }
         img {
           width: 32px;
