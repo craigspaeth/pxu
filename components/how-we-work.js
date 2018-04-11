@@ -353,11 +353,17 @@ export default class extends React.Component {
           }
         }
         @media screen and (max-width: 480px) {
+          .intro {
+            margin-bottom: ${margins.l}px;
+          }
           .wrapper {
             ${layout.mobile}
           }
           .form-container {
             margin: 0 ${margins.s}px;
+          }
+          .blurb-container {
+            padding-left: 0;
           }
         }
       `}</style>

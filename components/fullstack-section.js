@@ -293,7 +293,7 @@ export default class extends React.Component {
       <div className='wrapper'>
         <div className='code'>
           <code className='numerals'>
-            {_.times(100, i => <li>{i}</li>)}
+            {_.times(100, i => <li key={i}>{i}</li>)}
           </code>
           <code className='inner-code'>
             {codeBlocks[this.state.codeBlockIndex].code
@@ -308,8 +308,8 @@ export default class extends React.Component {
         <div className='inner'>
           <div className='left'>
             <ul>
-              {codeBlocks.map(block => (
-                <li style={{ backgroundImage: `url(${block.src})` }} />
+              {codeBlocks.map((block, i) => (
+                <li key={i} style={{ backgroundImage: `url(${block.src})` }} />
               ))}
             </ul>
           </div>
@@ -454,7 +454,8 @@ export default class extends React.Component {
             margin: ${margins.l}px 0 0 0;
           }
           .code:before {
-            height: 160%;
+            background: linear-gradient(transparent, ${colors.blue1}, ${colors.blue1});
+            height: 100%;
           }
           .code:after {
             display: none;
@@ -466,11 +467,15 @@ export default class extends React.Component {
             padding-top: ${margins.l}px;
             padding-bottom: ${margins.l}px;
           }
+          .right {
+            margin-top: ${margins.s}px;
+          }
           .logo {
             background-size: 80% contain;
           }
           .inner {
             ${layout.mobile}
+            margin-top: 0;
           }
         }
         `}

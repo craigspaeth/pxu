@@ -8,6 +8,7 @@ const inputStyle = `
   ${type.helveticaL};
   border: 0;
   border-bottom: 2px solid ${colors.gray6};
+  border-radius: 0;
   padding: 10px 0px;
   width: 100%;
   margin-bottom: ${margins.xs}px;
@@ -19,7 +20,7 @@ const inputStyle = `
 export default class extends React.Component {
   constructor () {
     super()
-    this.state = { missing: [] }
+    this.state = { missing: [], focused: false }
   }
 
   componentDidUpdate () {
@@ -31,7 +32,7 @@ export default class extends React.Component {
   }
 
   maybeFocusOnFirstInput () {
-    if (this.props.focused) this.refs.name.focus()
+    if (this.props.focused && !this.state.focused) this.refs.name.focus()
   }
 
   onSubmit = async e => {
@@ -65,7 +66,10 @@ export default class extends React.Component {
           <form onSubmit={this.onSubmit}>
             <label>
               Name
-              <input ref='name' />
+              <input
+                ref='name'
+                onFocus={() => this.setState({ focused: true })}
+              />
             </label>
             <label
               className={_.includes(this.state.missing, 'email') ? 'error' : ''}
@@ -75,6 +79,7 @@ export default class extends React.Component {
                 type='email'
                 ref='email'
                 onKeyDown={this.clearMissing('email')}
+                onFocus={() => this.setState({ focused: true })}
               />
             </label>
             <label
@@ -87,11 +92,11 @@ export default class extends React.Component {
               <Textarea
                 inputRef={ref => (this.textarea = ref)}
                 onKeyDown={this.clearMissing('message')}
+                onFocus={() => this.setState({ focused: true })}
               />
             </label>
             <button type='submit'>Submit</button>
             <small className='or-email'>
-              <strong>Or email us:</strong>
               <a href='mailto: info@pixelunicorns.com'>
                 <img src='/static/mail.svg' />
                 info@pixelunicorns.com
@@ -119,9 +124,8 @@ export default class extends React.Component {
             padding-top: ${margins.m}px;
             text-align: center;
             display: block;
-          }
-          .or-email strong {
             font-weight: bold;
+            text-decoration: underline;
           }
           .or-email img {
             vertical-align: middle;

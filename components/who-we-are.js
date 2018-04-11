@@ -88,6 +88,7 @@ export default () => {
           }
           .wrapper {
             ${layout.mobile}
+            margin: ${margins.l}px 0;
           }
         }
       `}</style>
