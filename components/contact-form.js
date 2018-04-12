@@ -132,7 +132,7 @@ export default class extends React.Component {
             margin: 0 ${margins.xxs}px;
           }
           .or-email a {
-            color: ${colors.gray3};
+            color: ${colors.gray2};
             text-decoration: none;
           }
           .right {
