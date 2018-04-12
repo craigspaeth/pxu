@@ -352,7 +352,16 @@ export default class extends React.Component {
             height: auto;
           }
           .blurb-container:before {
-            display: none;
+            position: relative;
+            display: inline-block;
+            margin: 0;
+            left: 0;
+            top: 27px;
+            border: 0;
+            color: black;
+            content: counter(step-counter) '.';
+            padding: 0;
+            background: transparent;
           }
           li h4 {
             padding-left: 35px;
