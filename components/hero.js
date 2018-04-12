@@ -49,7 +49,7 @@ export default class extends React.Component {
           position: absolute;
           left: 0;
           top: 0;
-          transition: opacity 0.5s cubic-bezier(0.550, 0.055, 0.675, 0.190);
+          transition: opacity 1.7s cubic-bezier(0.550, 0.055, 0.675, 0.190);
           opacity: ${this.state.vizLoaded ? 0.7 : 0};
         }
         .viz:after, .viz:before {

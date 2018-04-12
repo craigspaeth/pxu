@@ -131,7 +131,7 @@ export default class extends React.Component {
           header.sticky {
             position: fixed;
             top: 0;
-            transform: translateY(${this.state.scrollingDir == 'down' && this.state.belowHero ? '-100%' : '0'});
+            transform: translateY(${this.state.scrollingDir == 'down' && this.state.belowHero ? 'calc(-100% - 10px)' : '0'});
             transition: transform ease-in-out 0.2s;
             display: ${this.state.belowHero ? 'block' : 'none'};
             width: 100%;
