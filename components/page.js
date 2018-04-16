@@ -74,7 +74,7 @@ export default class extends React.Component {
         <div ref='whoWeAre'>
           <Waypoint onEnter={this.setNavIndex(2)} />
         </div>
-        <Header eyebrow={copy.header2.eyebrow} copy={copy.header1.copy} />
+        <Header eyebrow={copy.header2.eyebrow} copy={copy.header2.copy} />
         <WhoWeAre />
         <WeveWorkedWith />
         <HowWeWork />
