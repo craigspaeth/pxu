@@ -6,6 +6,7 @@ import {
   type,
   margins
 } from '../lib/styles'
+import copy from '../lib/copy.json'
 import Blurb from './blurb'
 
 export default () => {
@@ -15,31 +16,25 @@ export default () => {
         <div className='blurb-container'>
           <Blurb
             icon='/static/people-icon.svg'
-            header='The people'
-            paragraph='Our team has decades of experience designing and building digital products and media. We’ve helped grow startups from several to hundreds of people in size, and elevated local newspapers into global publishing brands.'
+            header={copy.peopleSection.h}
+            paragraph={copy.peopleSection.p}
           />
         </div>
         <ul>
           <li>
             <div className='img' />
             <h6>Rachel Pigott</h6>
-            <p>
-              Rachel is a creative who can work and collaborate effectively cross-discipline. Rachel is a hands-on designer in all areas of production––visual, copy, web, and print design—with solid fundamentals in typography, color theory, and composition. Rachel has expertise in all areas of film/video––from pre-production, to production, to post-production.
-            </p>
+            <p>{copy.peopleSection.rachel}</p>
           </li>
           <li>
             <div className='img' />
-            <h6>Rachel Pigott</h6>
-            <p>
-              Do mollit dolore commodo pariatur excepteur sit excepteur incididunt amet nulla ad. Aliqua qui irure sint aliquip nisi excepteur est aliqua do deserunt voluptate sit.
-            </p>
+            <h6>Craig Spaeth</h6>
+            <p>{copy.peopleSection.craig}</p>
           </li>
           <li>
             <div className='img' />
             <h6>Our Network</h6>
-            <p>
-              Do mollit dolore commodo pariatur excepteur sit excepteur incididunt amet nulla ad. Aliqua qui irure sint aliquip nisi excepteur est aliqua do deserunt voluptate sit.
-            </p>
+            <p>{copy.peopleSection.network}</p>
           </li>
         </ul>
       </div>

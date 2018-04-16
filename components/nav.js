@@ -1,10 +1,17 @@
 import initHeroViz from '../lib/hero-viz'
 import { margins, type, colors } from '../lib/styles'
 
+const scrollIntentThreshold = 12
+
 export default class extends React.Component {
   constructor () {
     super()
-    this.state = { scrollingDir: 'down', belowHero: false, previouScrollTop: 0 }
+    this.state = {
+      scrollingDirCount: { down: 0 },
+      scrollingDir: 'down',
+      belowHero: false,
+      previouScrollTop: 0
+    }
   }
 
   componentDidMount () {
@@ -20,11 +27,19 @@ export default class extends React.Component {
     const scrollTop =
       (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)
     const dir = scrollTop > this.state.previouScrollTop ? 'down' : 'up'
+    const curDirCount = this.state.scrollingDirCount[dir] || 0
     this.setState({
-      scrollingDir: dir,
       previouScrollTop: scrollTop,
+      scrollingDirCount: { [dir]: curDirCount + 1 },
+      scrollingDir: curDirCount >= scrollIntentThreshold || dir == 'down'
+        ? dir
+        : this.state.scrollingDir,
       belowHero: scrollTop > window.innerHeight / 2
     })
+    clearTimeout(this.resetIntentTimeout)
+    this.resetIntentTimeout = setTimeout(() => {
+      this.setState({ scrollingDirCount: { [dir]: 0 } })
+    }, 100)
   }
 
   nav () {

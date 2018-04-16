@@ -1,4 +1,5 @@
 import { columns, type, layout, margins, colors } from '../lib/styles'
+import copy from '../lib/copy'
 import Textarea from 'react-textarea-autosize'
 import request from 'superagent'
 import _ from 'lodash'
@@ -20,7 +21,7 @@ const inputStyle = `
 export default class extends React.Component {
   constructor () {
     super()
-    this.state = { missing: [], focused: false }
+    this.state = { missing: [], focused: false, submitted: false }
   }
 
   componentDidUpdate () {
@@ -32,7 +33,9 @@ export default class extends React.Component {
   }
 
   maybeFocusOnFirstInput () {
-    if (this.props.focused && !this.state.focused) this.refs.name.focus()
+    if (this.props.focused && !this.state.focused && !this.state.submitted) {
+      this.refs.name.focus()
+    }
   }
 
   onSubmit = async e => {
@@ -49,20 +52,23 @@ export default class extends React.Component {
       from,
       text
     })
+    this.toggleSubmitted()
   }
 
   clearMissing = name => e => {
     this.setState({ missing: _.without(this.state.missing, name) })
   }
 
-  render () {
+  toggleSubmitted = () => {
+    this.setState({ submitted: !this.state.submitted })
+  }
+
+  renderForm () {
     return (
       <div className='container'>
         <div className='right'>
-          <h5>Let's work together</h5>
-          <p>
-            Looking for some unicorn designer/developers for your next project? Let’s talk and see if we’d make a good ft.
-          </p>
+          <h5>{copy.contactSection.h}</h5>
+          <p>{copy.contactSection.p}</p>
           <form onSubmit={this.onSubmit}>
             <label>
               Name
@@ -213,5 +219,46 @@ export default class extends React.Component {
         `}</style>
       </div>
     )
+  }
+
+  renderSubmitted () {
+    return (
+      <div className='submitted-container'>
+        <div>
+          <img src='/static/hands-up.svg' />
+          <h4>Thanks! We'll reply soon.</h4>
+          <a onClick={this.toggleSubmitted}>
+            Submit another message
+          </a>
+        </div>
+        <style jsx>
+          {`
+        .submitted-container {
+          text-align: center;
+          height: 665px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        h4 {
+          ${type.nimbusS}
+          color: ${colors.blue1};
+          font-weight: bold;
+          margin: ${margins.m}px 0 ${margins.xs}px 0;
+        }
+        a {
+          ${type.helveticaM}
+          text-decoration: underline;
+          cursor: pointer;
+          color: ${colors.gray4};
+        }
+      `}
+        </style>
+      </div>
+    )
+  }
+
+  render () {
+    return this.state.submitted ? this.renderSubmitted() : this.renderForm()
   }
 }

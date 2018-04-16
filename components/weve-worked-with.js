@@ -7,6 +7,7 @@ import {
   layout,
   gutterSize
 } from '../lib/styles'
+import copy from '../lib/copy'
 import Blurb from './blurb'
 
 export default () => {
@@ -16,8 +17,8 @@ export default () => {
         <div className='blurb'>
           <Blurb
             icon='/static/weve-worked-with-icon.svg'
-            header='Our clients'
-            paragraph='We’ve worked with a wide range of companies in a variety of industries including technology, liquor, fashion, real estate, healthcare, and more. We love solving problems from all sorts of backgrounds and embrace a new challenge.'
+            header={copy.clientsSection.h}
+            paragraph={copy.clientsSection.p}
           />
         </div>
         <div className='logos'>
