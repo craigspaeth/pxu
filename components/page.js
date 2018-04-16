@@ -11,6 +11,7 @@ import HowWeWork from '../components/how-we-work'
 import Footer from '../components/footer'
 import initHeroViz from '../lib/hero-viz'
 import { colors, margins } from '../lib/styles'
+import copy from '../lib/copy'
 import Waypoint from 'react-waypoint'
 import _ from 'lodash'
 
@@ -65,10 +66,7 @@ export default class extends React.Component {
         <div ref='whatWeDo'>
           <Waypoint onEnter={this.setNavIndex(1)} />
         </div>
-        <Header
-          eyebrow='What we do'
-          copy='We build functional digital products with attention to detail'
-        />
+        <Header eyebrow={copy.header1.eyebrow} copy={copy.header1.copy} />
         <UISection />
         <FullstackSection />
         <MoreSection />
@@ -76,10 +74,7 @@ export default class extends React.Component {
         <div ref='whoWeAre'>
           <Waypoint onEnter={this.setNavIndex(2)} />
         </div>
-        <Header
-          eyebrow='Who we are'
-          copy='We’re an agile team of design-gineers'
-        />
+        <Header eyebrow={copy.header2.eyebrow} copy={copy.header1.copy} />
         <WhoWeAre />
         <WeveWorkedWith />
         <HowWeWork />

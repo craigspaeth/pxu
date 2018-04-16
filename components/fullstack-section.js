@@ -7,6 +7,7 @@ import {
   layout,
   gutterSize
 } from '../lib/styles'
+import copy from '../lib/copy'
 import _ from 'lodash'
 import Blurb from './blurb'
 
@@ -316,8 +317,8 @@ export default class extends React.Component {
           <div className='right'>
             <Blurb
               icon='/static/fullstack-icon.svg'
-              header='Full-stack development'
-              paragraph='We have experience in a variety of front-end and back-end technologies. Our team has been responsible for maintaining reliable codebases over many years and launching numerous apps and websites from scratch. Whether you’re looking to set up new data pipelines or implement a stunning use of new 3D technologies we’ll have a solution.'
+              header={copy.fullstackSection.h}
+              paragraph={copy.fullstackSection.p}
             />
           </div>
         </div>

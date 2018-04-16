@@ -9,20 +9,13 @@ import {
   footerHeight,
   navHeight
 } from '../lib/styles'
+import copy from '../lib/copy'
 import Blurb from './blurb'
 import ContactForm from '../components/contact-form'
 import Arrow from '../components/arrow'
 import Waypoint from 'react-waypoint'
 import Animation from './animation'
 import _ from 'lodash'
-
-const paragraphs = [
-  'In our projects we follow a core set of values and process that guide us. Let’s take a look.',
-  'Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?',
-  'Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?',
-  'Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?',
-  'Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate and clarity that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?'
-]
 
 export default class extends React.Component {
   constructor () {
@@ -85,8 +78,8 @@ export default class extends React.Component {
           <Waypoint onEnter={this.setAnimation(0)} />
           <Blurb
             icon='/static/muscle.svg'
-            header='How we work'
-            paragraph={paragraphs[0]}
+            header={copy.howWeWorkSection.h}
+            paragraph={copy.howWeWorkSection.p}
           />
         </div>
         <div className='wrapper'>
@@ -115,8 +108,8 @@ export default class extends React.Component {
                     <Waypoint onEnter={this.setAnimation(1)} />
                   </div>
                   <Blurb
-                    header='First—the fundamentals'
-                    paragraph={paragraphs[1]}
+                    header={copy.howWeWorkSection.one.h}
+                    paragraph={copy.howWeWorkSection.one.p}
                   />
                 </div>
               </li>
@@ -129,7 +122,10 @@ export default class extends React.Component {
                   <div className='waypoint'>
                     <Waypoint onEnter={this.setAnimation(2)} />
                   </div>
-                  <Blurb header='Make it work' paragraph={paragraphs[2]} />
+                  <Blurb
+                    header={copy.howWeWorkSection.two.h}
+                    paragraph={copy.howWeWorkSection.two.p}
+                  />
                 </div>
               </li>
               <li>
@@ -142,8 +138,8 @@ export default class extends React.Component {
                     <Waypoint onEnter={this.setAnimation(3)} />
                   </div>
                   <Blurb
-                    header='Devil’s in the details'
-                    paragraph={paragraphs[3]}
+                    header={copy.howWeWorkSection.three.h}
+                    paragraph={copy.howWeWorkSection.three.p}
                   />
                 </div>
               </li>
@@ -160,7 +156,10 @@ export default class extends React.Component {
                   <div className='waypoint'>
                     <Waypoint onEnter={this.setAnimation(4)} />
                   </div>
-                  <Blurb header='Have fun' paragraph={paragraphs[4]} />
+                  <Blurb
+                    header={copy.howWeWorkSection.four.h}
+                    paragraph={copy.howWeWorkSection.four.p}
+                  />
                 </div>
               </li>
             </ol>

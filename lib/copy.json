@@ -1,0 +1,99 @@
+{
+  "hero": {
+    "h": "Digital product studio based in NYC",
+    "p": "Pixel Unicorns is a design and development team that builds delightful web and mobile products for our clients."
+  },
+  "header1": {
+    "eyebrow": "What we do",
+    "copy": "We craft digital work that looks and feels magical"
+  },
+  "uiSection": {
+    "h": "UI/UX Design",
+    "p": "We make web and mobile products with a user-centered mindset. We’ll use wireframes, usability tests, prototypes, analytics, and more to ensure our client’s business goals are met and their users are happy.<br><br>Our products not only just work—they look and feel fantastic. We’ve worked on a spectrum of digital products from no-frills internal business tools to flashy marketing websites that pop. Whether you’re a startup putting out your first minimum viable product or a Fortune 500 company releasing their corporate responsibility microsite, we’ll make sure every pixel is in place and your digital product is a delight to use and look at.",
+    "a": "Request work samples"
+  },
+  "fullstackSection": {
+    "h": "Full Stack Development",
+    "p": "We have experience in a variety of front-end and back-end technologies with a core competency in delivering quality fullstack code at a lower total cost with universal JavaScript. Our team has maintained stable codebases over years of evolution and launched numerous greenfield apps and websites under tight deadlines. Integrating complex service architectures and data pipelines, building robust internal tools, or adding stunning uses of 3D technologies are just some of our technical capabilities.",
+    "a": "Let’s talk about your technology needs"
+  },
+  "moreSection": {
+    "h": "Branding, marketing & more",
+    "p": "While our focus is digital products, we can execute across the spectrum. We’ve worked at film post-production houses, built 2D and 3D video games, designed corporate brand identities, managed marketing campaigns, and more. If your product needs multidisciplinary skills, chances one of us or someone in our network can deliver.",
+    "ul": [
+      [
+        "Branding",
+        "Logos design",
+        "Visual & verbal Identity",
+        "Print design",
+        "Brand strategy",
+        "Style guides",
+        "Art directio"
+      ],
+      [
+        "Marketing",
+        "Copywriting",
+        "SEO",
+        "Advertising design",
+        "Content strategy & creation",
+        "Presentation design",
+        "User acquisitio"
+      ],
+      [
+        "Media",
+        "Illustration",
+        "Video editing",
+        "Color correction",
+        "Photography",
+        "2D & 3D animation",
+        "3D modeling"
+      ],
+      [
+        "Others",
+        "Organization design & consultation",
+        "Product management",
+        "Developer tools & training",
+        "Technical architecture consultation"
+      ]
+    ]
+  },
+  "header2": {
+    "eyebrow": "Who we are",
+    "copy": "We’re a rare multidisciplinary breed with a gamut of experience"
+  },
+  "peopleSection": {
+    "h": "The People",
+    "p": "Our team has decades of experience bringing digital excellence to businesses. We’ve helped grow startups from several to hundreds of people in size and elevated local newspapers into global publishing brands.",
+    "rachel": "Rachel is a creative who can work and collaborate effectively cross-discipline. Rachel is a hands-on designer in all areas of production––visual, copy, web, and print design—with solid fundamentals in typography, color theory, and composition. Rachel has expertise in all areas of film/video––from pre-production, to production, to post-production. Recently Rachel has won awards as a Senior Digital Designer at Addison, lead design and marketing at Observer Media as Creative Director, and contributed to post-production houses and design consultancies such as Deluxe and Pigott/Schaefer.",
+    "craig": "Craig is an experienced digital product engineer, designer, and leader. Craig began making creative visual work and writing code since he was only several years old and has since continued to walk the line between art and technology. Recently Craig spent 7½ years building numerous products and leading engineering teams at Artsy. Prior to that Craig has worked freelance building digital products and media for political and healthcare organizations, artists and content creators, creative agencies and startups, as well as launched and monetized his own Facebook apps and video games.",
+    "network": "While we’re a small team of designer and developers we’re connected to a wide range of skill sets and backgrounds. Our network consists of people who have lead marketing teams at New York’s largest publishing organizations and Fortune 500 companies, produced video and animations for top television networks, and add depth to our core capabilities with experience leading design and engineering teams at creative agencies and tech. startups."
+  },
+  "clientsSection": {
+    "h": "Our clients",
+    "p": "We’ve worked on projects with everyone from small startups to large corporations—across a variety of industries including technology, liquor, fashion, real estate, healthcare, and more. We love solving problems from all sorts of backgrounds and embrace a new challenge."
+  },
+  "howWeWorkSection": {
+    "h": "How we work",
+    "p": "In all of our work we let a core set of values and process guide us. Let’s take a look.",
+    "one": {
+      "h": "First, the fundamentals",
+      "p": "Before any project we must prime our canvas by clearing out all the details and distractions. It’s with this blank slate that we can try to find our north star—what is the primary goal, business metric, or brand message this project is trying to achieve?"
+    },
+    "two": {
+      "h": "Make it work",
+      "p": "Once we know what we’re trying to accomplish, we can start running towards it. We’ll start building early prototypes or testing low fidelity designs to validate ideas and iterate until we’re confident we have a functional solution and know the path towards your objective."
+    },
+    "three": {
+      "h": "Devil’s in the details",
+      "p": "As the Bauhaus mantra goes form follows function, and we don’t skimp on either. After ensuring a highly functional product we’ll narrow in and ensure that every screen size looks good, every millisecond is shed, and every pixel is in the right place. This is when we really make your product stand out from the competition."
+    },
+    "four": {
+      "h": "Have fun",
+      "p": "Finally, with a beautiful, functional, and metric-driving product in place we’ll add the finishing touches. This is when we make it pop—add that splash of color, try out machine learning, consider those minor features and push the needle just a bit further. By the end of this process we’ll have made a unique product atop a rock solid foundation."
+    }
+  },
+  "contactSection": {
+    "h": "Let's work together",
+    "p": "Looking for some unicorns to work on your next digital product? Let’s talk and see if we’d make a good fit."
+  }
+}

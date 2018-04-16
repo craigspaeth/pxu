@@ -9,6 +9,7 @@ import {
   navHeight,
   colors
 } from '../lib/styles'
+import copy from '../lib/copy.json'
 
 export default class extends React.Component {
   constructor () {
@@ -28,11 +29,9 @@ export default class extends React.Component {
       <div className='wrapper'>
         <div ref='viz' className='viz' />
         <div className='inner'>
-          <Header copy='Digital product studio based in NYC' />
+          <Header copy={copy.hero.h} />
           <div className='h2wrapper'>
-            <h2>
-              We’re a design and development team that builds web and mobile products for our clients.
-            </h2>
+            <h2>{copy.hero.p}</h2>
           </div>
         </div>
         <div className='arrow' onClick={() => this.props.scrollTo('whatWeDo')}>
@@ -44,6 +43,7 @@ export default class extends React.Component {
           bottom: ${margins.l}px;
           left: 50%;
           cursor: pointer;
+          transform: translateX(-50%);
         }
         .viz {
           position: absolute;
